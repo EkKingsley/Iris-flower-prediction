@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Liver Disease Prediction</title>
+    {% endif %}
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="static/all.min.js"></script>
+    <script src="static/all.min.css"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+<div class="content-section">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form method="POST" action="">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Enter Iris Flower Measurements:</legend>
+            <div class="form-group">
+                {{ form.sepalL.label(class="form-control-label") }}
+                {% if form.sepalL.errors %}
+                {{ form.sepalL(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.sepalL.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{form.sepalL(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.sepalW.label(class="form-control-label") }}
+                {% if form.sepalW.errors %}
+                {{ form.sepalW(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.sepalW.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{form.sepalW(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.petalL.label(class="form-control-label") }}
+                {% if form.petalL.errors %}
+                {{ form.petalL(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.petalL.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{form.petalL(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.petalW.label(class="form-control-label") }}
+                {% if form.petalW.errors %}
+                {{ form.petalW(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.petalW.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{form.petalW(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    {% if predict %}
+            <p>Flower Type is : Iris {{ predict }} </p>
+    {% endif %}
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+</div>
+
+
+
+<script src="static/jquery-1.11.3.min.js"></script>
+<script src="static/text.js"></script>
+<script src="static/bootstrap.min.js"></script>
+</body>
+</html>
+
+
